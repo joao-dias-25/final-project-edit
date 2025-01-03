@@ -55,3 +55,9 @@ This repository contains all the components required for the final project of th
    - Develop Airflow DAGs for batch processing and upload processed data to BigQuery.
 
 ---
+
+## **Group 1**
+- João
+- Ana
+- Diogo Martins
+- Vânia
