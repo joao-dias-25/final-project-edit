@@ -22,9 +22,12 @@ This repository contains all the components required for the final project of th
    Bucket containing JSON files for streaming data (updated every 30 seconds).  
    [Access here](https://console.cloud.google.com/storage/browser/edit-de-project-streaming-data;tab=objects?forceOnBucketsSortingFiltering=true&authuser=4&inv=1&invt=Abl2rw&project=data-eng-dev-437916&prefix=&forceOnObjectsSortingFiltering=false)
 
-2. **Airflow DAGs Bucket**:  
+2. **Airflow DAGs**:  
    Bucket for storing DAGs and orchestration scripts.  
    [Access here](https://console.cloud.google.com/storage/browser/edit-de-project-airflow-dags;tab=objects?forceOnBucketsSortingFiltering=true&authuser=4&inv=1&invt=Abl2rw&project=data-eng-dev-437916&prefix=&forceOnObjectsSortingFiltering=false)
+
+   Airflow interface.
+   [Access here](http://edit-data-eng.duckdns.org/home)
 
 3. **Producer Bucket**:  
    Bucket for additional data processing or temporary storage.  
