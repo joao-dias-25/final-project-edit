@@ -11,6 +11,11 @@ Bucket producer edit-de-vm-mount :https://console.cloud.google.com/storage/brows
 
 Examples Spark Streaming: https://github.com/vaniamv/dataprocessing/tree/main/spark_streaming
 
+Sources:
+API Carris - https://github.com/joaodcp/Carris-API
+Dados CM Lisboa - https://dados.cm-lisboa.pt/dataset
+Weather API - https://openweathermap.org/
+
 Steps:
 - Defining dashboard (metrics, first draft, etc)
 - Dimensioning model - sources (dates, carris, weather, etc)
