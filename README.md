@@ -10,3 +10,4 @@ Bucket de DAGs edit-de-project-airflow-dags : https://console.cloud.google.com/s
 Bucket producer edit-de-vm-mount :https://console.cloud.google.com/storage/browser/edit-de-vm-mount;tab=objects?authuser=4&inv=1&invt=Abl2rw&project=data-eng-dev-437916&prefix=&forceOnObjectsSortingFiltering=false
 
 Examples Spark Streaming: https://github.com/vaniamv/dataprocessing/tree/main/spark_streaming
+Example SparkStreaming API Carris https://github.com/vaniamv/dataprocessing/blob/main/spark_streaming/examples/example_3_api_json.ipynb
