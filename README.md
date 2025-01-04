@@ -59,7 +59,7 @@ This repository contains all the components required for the final project of th
       - Ler API - **done**
       - Endpoint Carris
          - Upload GCP - **done**
-         - Converter txt para Json - **WIP**
+         - Converter para parquet - **WIP**
       - Escrever GCP - **done**
       - Criar tabelas BigQuery 
 
