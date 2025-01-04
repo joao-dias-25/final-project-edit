@@ -46,7 +46,7 @@ This repository contains all the components required for the final project of th
 
 ## **Steps**
 1. **Define Dashboard**
-   - Establish metrics and create mockups for the dashboard.
+   - Establish metrics and create mockups for the dashboard..
 2. **Dimensional Model**
    - Design the schema and identify data sources (Carris API, weather, etc.).
 3. **Pipeline Development**
