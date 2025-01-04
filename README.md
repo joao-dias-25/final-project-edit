@@ -51,8 +51,17 @@ This repository contains all the components required for the final project of th
    - Design the schema and identify data sources (Carris API, weather, etc.).
 3. **Pipeline Development**
    - Implement Spark Streaming to process data from the GCP bucket containing 24-hour JSON data.
+      - Ler GCP - **done**
+      - Transforma json to parquet (?)
+      - Escrever GCP - **WIP**
 4. **Batch Processing**
    - Develop Airflow DAGs for batch processing and upload processed data to BigQuery.
+      - Ler API - **done**
+      - Endpoint Carris
+         - Upload GCP - **done**
+         - Converter txt para Json - **WIP**
+      - Escrever GCP - **done**
+      - Criar tabelas BigQuery 
 
 ---
 
