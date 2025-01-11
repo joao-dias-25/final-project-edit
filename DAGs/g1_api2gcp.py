@@ -80,7 +80,7 @@ default_args = {
 dag = DAG(
     'group1_fetch_api_and_gtfs_data',
     default_args=default_args,
-    description='Fetch data from Carris Metropolitana API and upload to GCS',
+    description='Fetch data from Carris Metropolitana API and upload to GCP',
     schedule_interval=None,  # Run manually or set a cron expression
     start_date=datetime(2025, 1, 11),
     catchup=False,
