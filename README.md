@@ -83,8 +83,10 @@ To be able to fetch all Carris API data, three different Ingestion scripts were 
     ."encm": "https://api.carrismetropolitana.pt/datasets/facilities/encm",
     ."schools": "https://api.carrismetropolitana.pt/datasets/facilities/schools",
     ."GTFS": "https://api.carrismetropolitana.pt/gtfs" (.txt files)
-- 1_1_Raw_Ingestion_Patterns.py: fetchs only patterns data from the pattern_id's available in the GTFS-trips.txt file
-- 1_2_Raw_Ingestion_Shapes.py: fetchs only shapes data from the shape_id's available in the GTFS-trips.txt file
+- 1_1_Raw_Ingestion_Patterns.py: fetch only patterns data from the pattern_id's available in the GTFS-trips.txt file
+- 1_2_Raw_Ingestion_Shapes.py: fetch only shapes data from the shape_id's available in the GTFS-trips.txt file
+- 1_3_Raw_Ingestion_Enrichment.py: fetch data from additional enrichment API's available in the Enrichment folder as json files.
+- 1_4_Raw_Ingestion_Convert.py: Transform all LandingZone files in a tabular form as .parquet files stored in the LandingZone_Converted folder.
 
 All API responses are stored in JSON and txt files in the edit-data-eng-project-group1/LandingZone folder.
 

@@ -46,8 +46,9 @@ def fetch_and_append_shapes_data(shape_ids):
 def main():
     try:
         shape_ids = fetch_trips_data()
-        warnings.filterwarnings("ignore", message="Your application has authenticated using end user credentials") # Ignore the specific UserWarning
+        #warnings.filterwarnings("ignore", message="Your application has authenticated using end user credentials") # Ignore the specific UserWarning
         fetch_and_append_shapes_data(shape_ids)
+        warnings.filterwarnings("ignore", message="Your application has authenticated using end user credentials") # Ignore the specific UserWarning
         print(f"All shapes data has been written to the GCP bucket")
 
     except GoogleCloudError as e:
