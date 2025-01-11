@@ -1,9 +1,10 @@
+
 import requests
 import json
 from google.cloud import storage
 
 def fetch_ipma_data():
-    url = "https://api.ipma.pt/open-data/observation/climate/evapotranspiration/lisboa/"
+    url = "https://api.ipma.pt/open-data/observation/meteorology/stations/observations.json"
     response = requests.get(url)
     if response.status_code == 200:
         return response.json()
@@ -16,7 +17,8 @@ def upload_to_gcs(data, bucket_name, blob_name):
     blob = bucket.blob(blob_name)
     
     json_data = json.dumps(data, indent=2)
-    blob.upload_from_string(json_data, content_type='application/json')
+    json_data_lisbon = json_data.(col'estacaoid' = '7240919')
+    blob.upload_from_string(json_data_lisbon, content_type='application/json')
     
     print(f"File uploaded to {blob_name} in bucket {bucket_name}")
 
