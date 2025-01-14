@@ -44,9 +44,9 @@ This repository contains all the components required for the final project of th
 
 ---
 
-## **Steps**
+## **Project Steps**
 1. **Define Dashboard**
-   - Establish metrics and create mockups for the dashboard..
+   - Establish metrics and create mockups for the dashboard.
 2. **Dimensional Model**
    - Design the schema and identify data sources (Carris API, weather, etc.).
 3. **Pipeline Development**
@@ -65,11 +65,8 @@ This repository contains all the components required for the final project of th
 
 ---
 
-Steps:
-- Defining dashboard (metrics, first draft, etc)
-- Dimensioning model - sources (dates, carris, weather, etc)
-- Read from 24h GCP bucket 
 
+## **Technical Instructions**
 
 ## 1 - Data Ingestion
 
@@ -95,21 +92,21 @@ All API responses are stored in JSON and txt files in the edit-data-eng-project-
 
 Useful commands for Windows/WSL users:
 
-# Make sure it's all done in the same venv (using WSL)
+### **Make sure it's all done in the same venv (using WSL)**
 
-# Create virtual environment: python3 -m venv venv
+### **Create virtual environment: python3 -m venv venv**
     - Activate venv: source .venv/bin/activate
 
-# Execute script in WSl using python ReadAPI.py
+### **Execute script in WSl using python ReadAPI.py**
 
-# Install Google Cloud client package
+### **Install Google Cloud client package**
     - pip install google-cloud-storage
 
-# Install in WSL
+### **Install in WSL**
     - sudo snap install google-cloud-cli --classic
     - gcloud init
 
-# Command to GCP login
+### **Command to GCP login**
     - gcloud auth application-default login
     
 =======
