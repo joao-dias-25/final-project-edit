@@ -1,0 +1,3 @@
+[submodule "dbt"]
+	path = dbt
+	url = https://github.com/drmartins2/edit-de-project-dbt.git

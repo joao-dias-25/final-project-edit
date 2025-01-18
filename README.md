@@ -108,6 +108,17 @@ Useful commands for Windows/WSL users:
 
 ### **Command to GCP login**
     - gcloud auth application-default login
+
+
+## 2 - Data Load (BigQuery)
+
+
+
+## 3 - Data Transformation & Load (dbt)
+
+Use as reference ./dbt/README.md for dbt Docker setup
+
+
     
 =======
 ## **Group 1**
