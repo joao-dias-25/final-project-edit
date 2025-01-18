@@ -116,10 +116,36 @@ Useful commands for Windows/WSL users:
 
 ## 3 - Data Transformation & Load (dbt)
 
-Use as reference ./dbt/README.md for dbt Docker setup
+Use as reference ./dbt/README.md for dbt Docker setup.
+Runs the dbt model using the DAG "xxx" triggering GCP Run Cloud Job "zzz".
 
 
-    
+### 3.1 - Staging Layer
+
+Layer with raw data transformation, connecting directely to the BigQuery source tables.
+Include reference to dbt model documentation.
+
+
+### 3.2 - Marts Layer
+
+Layer with Detailed Data Model, with all the Dimension tables and only Fact_Vehicles_Trips_Det.
+Uses as source tables references to the Staging Layer (e.g. DIM_Stops -> Select <fields> from ref{stg_Stops}).
+Include reference to dbt model documentation.
+
+
+### 3.3 - Reporting Layer
+
+Layer with Aggregated Data Model, with all Dimension tables (except DIM_Stops and DIM_Weather) and only Fact_Vehicles_Trips_Agg.
+Uses as source tables references to the Marts Layer (e.g. Fact_Vehicles_Trips_Agg -> Select <fields> from ref{Fact_Vehicles_Trips_Det}).
+Include reference to dbt model documentation.
+
+
+## 4 - Orchestration
+
+Using Airflow DAG's scheduled to run Daily at 1AM everyday.
+DAG's:
+ - "yyyy.py": brief description
+
 =======
 ## **Group 1**
 - João
