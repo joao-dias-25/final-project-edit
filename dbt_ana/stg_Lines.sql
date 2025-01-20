@@ -19,5 +19,4 @@ with lines as (
     cross join unnest(l.localities) as lc
 )
 
-select *
-from lines
+select * from lines

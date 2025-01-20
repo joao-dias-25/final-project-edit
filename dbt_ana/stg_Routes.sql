@@ -13,7 +13,7 @@ with routes as (
         case 
             when circular = '0' then 'NON CIRCULAR' 
             else 'CIRCULAR' 
-        end as circular, 
+        end as circular,
         line_id, 
         line_long_name, 
         line_short_name, 

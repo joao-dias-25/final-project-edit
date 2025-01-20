@@ -4,12 +4,11 @@ To reference this table onwards: {{ ref('your_model_name') }}
 
 {{
     config(
-        materialized = "view"  -- Altere para "table" se necessário
+        materialized = "view"  
     )
 }}
 
-with 
-lines as (
+with lines as (
     select
         l.id as line_code,
         l.long_name,
