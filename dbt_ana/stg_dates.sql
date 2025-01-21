@@ -1,8 +1,4 @@
-/* 
-Using dbt_date package -> get_date_dimension macro
-from https://github.com/calogica/dbt-date/tree/0.10.1/#get_date_dimensionstart_date-end_date
-As bonus added audit column ingested_at
-*/
+
 {{
     config(
         materialized = "view",

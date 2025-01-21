@@ -1,0 +1,153 @@
+version: 2
+
+models:
+  - name: DIM_Dates
+    description: "Tabela de datas dimensionais com intervalos de 2015 a 2050."
+    columns:
+      - name: date
+        description: "Data no formato YYYY-MM-DD."
+        tests:
+          - not_null
+      - name: day_of_week
+        description: "Dia da semana (1-7, onde 1 é segunda-feira)."
+      - name: day_of_month
+        description: "Dia do mês (1-31)."
+      - name: month
+        description: "Número do mês (1-12)."
+      - name: quarter
+        description: "Número do trimestre (1-4)."
+      - name: year
+        description: "Ano (ex. 2025)."
+      - name: ingested_at
+        description: "Timestamp de quando os dados foram carregados."
+        tests:
+          - not_null
+
+  - name: DIM_Lines
+    description: "Tabela de linhas de transporte, com informações sobre a linha e as localidades associadas."
+    columns:
+      - name: line_code
+        description: "Código único da linha."
+        tests:
+          - not_null
+          - unique
+      - name: long_name
+        description: "Nome completo da linha."
+      - name: short_name
+        description: "Nome curto da linha."
+      - name: color_line
+        description: "Cor associada à linha."
+      - name: locality
+        description: "Localidade associada à linha."
+      - name: line_type
+        description: "Tipo de linha (ex. metro, autocarro)."
+      - name: is_valid
+        description: "Indicador de validade da linha."
+      - name: inserted_at
+        description: "Timestamp de quando os dados foram carregados."
+        tests:
+          - not_null
+      - name: inserted_by
+        description: "Usuário que inseriu os dados."
+      - name: updated_at
+        description: "Timestamp de quando os dados foram atualizados."
+        tests:
+          - not_null
+      - name: updated_by
+        description: "Usuário que atualizou os dados."
+      - name: uuid
+        description: "UUID único gerado para cada linha."
+        tests:
+          - not_null
+
+  - name: DIM_Routes
+    description: "Tabela de rotas de transporte com informações sobre tipo de rota e características associadas."
+    columns:
+      - name: route_code
+        description: "Código único da rota."
+        tests:
+          - not_null
+          - unique
+      - name: route_long_name
+        description: "Nome completo da rota."
+      - name: route_short_name
+        description: "Nome curto da rota."
+      - name: route_color
+        description: "Cor associada à rota."
+      - name: route_text_color
+        description: "Cor do texto da rota."
+      - name: school
+        description: "Indica se a rota atende escolas."
+      - name: circular
+        description: "Indica se a rota é circular (CIRCULAR ou NON CIRCULAR)."
+      - name: route_type
+        description: "Tipo de rota (ex. Tram, Subway, Bus, etc.)."
+      - name: is_valid
+        description: "Indicador de validade da rota."
+      - name: inserted_at
+        description: "Timestamp de quando os dados foram carregados."
+        tests:
+          - not_null
+      - name: inserted_by
+        description: "Usuário que inseriu os dados."
+      - name: updated_at
+        description: "Timestamp de quando os dados foram atualizados."
+        tests:
+          - not_null
+      - name: updated_by
+        description: "Usuário que atualizou os dados."
+      - name: uuid
+        description: "UUID único gerado para cada rota."
+        tests:
+          - not_null
+
+  - name: DIM_Stops
+    description: "Tabela de paradas de transporte com informações sobre localização e infraestrutura próxima."
+    columns:
+      - name: stop_id
+        description: "ID único da parada."
+        tests:
+          - not_null
+          - unique
+      - name: stop_name
+        description: "Nome completo da parada."
+        tests:
+          - not_null
+      - name: stop_short_name
+        description: "Nome curto da parada."
+      - name: stop_latitude
+        description: "Latitude da parada."
+        tests:
+          - not_null
+      - name: stop_longitude
+        description: "Longitude da parada."
+        tests:
+          - not_null
+      - name: region_id
+        description: "ID da região."
+      - name: region_name
+        description: "Nome da região."
+      - name: district_id
+        description: "ID do distrito."
+      - name: district_name
+        description: "Nome do distrito."
+      - name: municipality_id
+        description: "ID do município."
+      - name: municipality_name
+        description: "Nome do município."
+      - name: locality
+        description: "Localidade da parada."
+      - name: operational_status
+        description: "Status operacional da parada (ex. ativo ou inativo)."
+      - name: near_school
+        description: "Indica se a parada está perto de uma escola (Yes, No, N/A)."
+      - name: near_airport
+        description: "Indica se a parada está perto de um aeroporto (Yes, No, N/A)."
+      - name: near_subway
+        description: "Indica se a parada está perto de uma estação de metrô (Yes, No, N/A)."
+      - name: near_train
+        description: "Indica se a parada está perto de uma estação de trem (Yes, No, N/A)."
+      - name: current_time
+        description: "Timestamp de quando os dados foram carregados."
+        tests:
+          - not_null

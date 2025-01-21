@@ -1,0 +1,30 @@
+version: 2
+sources:
+  - name: raw_data
+    database: data-eng-dev-437916
+    schema: data_eng_project_group1
+    tables:
+      - name: staging_agency
+      - name: staging_archives
+      - name: staging_calendar_dates
+      - name: staging_carris_alerts_data
+      - name: staging_carris_encm_data
+      - name: staging_carris_lines_data
+      - name: staging_carris_municipalities_data
+      - name: staging_carris_routes_data
+      - name: staging_carris_schools_data
+      - name: staging_carris_stops_data
+      - name: staging_carris_vehicles
+      - name: staging_dates
+      - name: staging_fare_attributes
+      - name: staging_fare_rules
+      - name: staging_feed_info
+      - name: staging_historical_stop_times
+      - name: staging_municipalities
+      - name: staging_periods
+      - name: staging_routes
+      - name: staging_shapes
+      - name: staging_stop_times
+      - name: staging_stops
+      - name: staging_trips
+      - name: staging_ipma_lisbon_data
