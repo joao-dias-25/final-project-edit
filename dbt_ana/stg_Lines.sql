@@ -1,23 +1,19 @@
-/*
-To reference this table onwards: {{ ref('stg_Lines') }}
-*/
-
 {{
     config(
         materialized = "view"
     )
 }}
 
-with lines as (
-    select
-        l.id as line_code,
+WITH lines AS (
+    SELECT
+        l.id AS line_code,
         l.long_name,
         l.short_name,
-        l.color as color_line,
-        lc
-    from {{ source('raw_data', 'staging_carris_lines_data') }} l
-    cross join unnest(l.localities) as lc
+        l.color AS color_line,
+        lc -- localidade expandida
+    FROM {{ source('raw_data', 'staging_carris_lines_data') }} l,
+    UNNEST(l.localities) AS lc -- Expande a coluna localities em várias linhas
 )
 
-select *
-from lines
+SELECT *
+FROM lines
