@@ -25,9 +25,14 @@ models:
     staging:
       +schema: staging
       +materialized: view
+      +on_schema_change: "sync_all_columns"
     marts:
       +schema: marts
       +materialized: table
+      +on_schema_change: "sync_all_columns"
+    reporting:
+      +materialized: incremental
+      +on_schema_change: "sync_all_columns"
 
 saved-queries:
   +cache:

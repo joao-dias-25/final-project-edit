@@ -1,0 +1,348 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: Dimension table about the date.
+    columns:
+      - name: date_day
+        description: Date.
+      - name: prior_date_day
+        description: Date of the previous day.
+      - name: next_date_day
+        description: Date of the next day.
+      - name: prior_year_date_day
+        description: Date of the same day in the previous year.
+      - name: prior_year_over_year_date_day
+        description: Date of the same day in the year before the previous year.
+      - name: day_of_week
+        description: Day of the week.
+      - name: day_of_week_name
+        description: Name of the day of the week.
+      - name: day_of_week_name_short
+        description: Short name of the day of the week.
+      - name: day_of_month
+        description: Day of the month.
+      - name: day_of_year
+        description: Day of the year.
+      - name: week_start_date
+        description: Start date of the week.
+      - name: week_end_date
+        description: End date of the week.
+      - name: prior_year_week_start_date
+        description: Start date of the week in the previous year.
+      - name: prior_year_week_end_date
+        description: End date of the week in the previous year.
+      - name: week_of_year
+        description: Week of the year.
+      - name: iso_week_start_date
+        description: Start date of the ISO week.
+      - name: iso_week_end_date
+        description: End date of the ISO week.
+      - name: prior_year_iso_week_start_date
+        description: Start date of the ISO week in the previous year.
+      - name: prior_year_iso_week_end_date
+        description: End date of the ISO week in the previous year.
+      - name: iso_week_of_year
+        description: ISO week of the year.
+      - name: prior_year_week_of_year
+        description: Week of the year in the previous year.
+      - name: prior_year_iso_week_of_year
+        description: ISO week of the year in the previous year.
+      - name: month_of_year
+        description: Month of the year.
+      - name: month_name
+        description: Name of the month.
+      - name: month_name_short
+        description: Short name of the month.
+      - name: month_start_date
+        description: Start date of the month.
+      - name: month_end_date
+        description: End date of the month.
+      - name: prior_year_month_start_date
+        description: Start date of the month in the previous year.
+      - name: prior_year_month_end_date
+        description: End date of the month in the previous year.
+      - name: quarter_of_year
+        description: Quarter of the year.
+      - name: quarter_start_date
+        description: Start date of the quarter.
+      - name: quarter_end_date
+        description: End date of the quarter.
+      - name: year_number
+        description: Year number.
+      - name: year_start_date
+        description: Start date of the year.
+      - name: year_end_date
+        description: End date of the year.
+      - name: ingested_at
+        description: Timestamp when the data was ingested.
+
+  - name: DIM_Lines
+    description: Dimension table about lines    
+    columns:
+      - name: line_code
+        description: correponds to line id
+        tests:
+          - not_null
+      - name: long_name
+        description: line long name
+      - name: short_name
+        description: line short name
+      - name: color_line
+        description: color related to each line
+      - name: locality
+        description: localities related to each line
+      - name: line_type
+        description: line type
+      - name: is_valid
+        description: indicates if the row is valid or not
+      - name: inserted_at
+        description: Timestamp when the data was ingested.
+        tests:
+          - not_null
+      - name: inserted_by
+        description: User who inserted the data.
+      - name: updated_at
+        description: Timestamp of when the data was updated.
+        tests:
+          - not_null
+      - name: updated_by
+        description: User who updated the data
+      - name: uuid
+        description: Unique UUID generated for each row.
+        tests:
+          - not_null
+
+  - name: DIM_Routes
+    description: Dimension table about routes
+    columns:
+    - name: route_code
+      description: Corresponds to route id
+      tests:
+        - not_null
+        - unique
+    - name: route_long_name
+      description: Full name of the route.
+    - name: route_short_name
+      description: Short name of the route.
+    - name: route_color
+      description: Color associated to each route
+    - name: route_text_color
+      description: Text color of the route.
+    - name: school
+      description: Indicates whether the route serves schools.
+    - name: circular
+      description: Indicates whether the route is circular (CIRCULAR or NON CIRCULAR).
+      data tests: 
+        - not null
+        - accepted_values:
+            values:
+              - CIRCULAR
+              - NON CIRCULAR
+    - name: route_type
+      description: Type of route
+      data tests: 
+        - not null
+        - accepted_values:
+            values:
+              - 'Tram, Streetcar, Light rail'
+              - 'Subway, Metro'
+              - 'Rail'
+              - 'Bus'
+              - 'Ferry'
+              - 'Cable tram'
+              - 'Aerial lift, suspended cable car'
+              - 'Funicular'
+              - 'Trolleybus'
+              - 'Monorail'
+              - 'Unknown'
+    - name: is_valid
+      description: indicates if the row is valid or not
+    - name: inserted_at
+      description: Timestamp when the data was ingested.
+      tests:
+        - not_null
+    - name: inserted_by
+      description: User who inserted the data.
+    - name: updated_at
+      description: Timestamp of when the data was updated.
+      tests:
+        - not_null
+    - name: updated_by
+      description: User who updated the data
+    - name: uuid
+      description: Unique UUID generated for each row.
+      tests:
+        - not_null
+
+
+  - name: DIM_Stops
+    description: Dimension table about Stops
+    columns:
+    - name: stop_id
+      description: Unique ID of the stop.
+      tests:
+        - not_null
+        - unique
+    - name: stop_name
+      description: Full name of the stop.
+      tests:
+        - not_null
+    - name: stop_short_name
+      description: Short name of the stop.
+    - name: stop_latitude
+      description: Latitude of the stop.
+      tests:
+        - not_null
+    - name: stop_longitude
+      description: Longitude of the stop.
+      tests:
+        - not_null
+    - name: region_id
+      description: Region id of each Stop
+    - name: region_name
+      description: Region name
+    - name: district_id
+      description: District id of each Stop
+    - name: district_name
+      description: District Name
+    - name: municipality_id
+      description: Municipality id of each Stop
+    - name: municipality_name
+      description: Municipality name
+    - name: locality
+      description: Locality of each Stop
+    - name: operational_status
+      description: Operational status of the stop 
+      data tests:
+        - not null
+        - accepted_values: 
+            values:
+              - ACTIVE
+              - VOIDED
+              - INACTIVE
+              - PROVISIONAL
+              - SEASONAL
+    - name: near_school
+      description: Indicates if the stop is near a school
+    - name: near_airport
+      description: Indicates if the stop is near an airport
+    - name: near_subway
+      description: Indicates if the stop is near a subway station (Yes, No, N/A).
+    - name: near_train
+      description: Indicates if the stop is near a train station (Yes, No, N/A).
+    - name: current_time
+      description: Timestamp of when the data was loaded.
+      tests:
+        - not_null
+    - name: is_valid
+      description: indicates if the row is valid or not
+    - name: inserted_at
+      description: Timestamp when the data was ingested.
+      tests:
+        - not_null
+    - name: inserted_by
+      description: User who inserted the data.
+    - name: updated_at
+      description: Timestamp of when the data was updated.
+      tests:
+        - not_null
+    - name: updated_by
+      description: User who updated the data
+    - name: uuid
+      description: Unique UUID generated for each row.
+      tests:
+        - not_null
+
+  - name: DIM_Weather
+    description: Dimension table about weather from a station in Lisbon
+    columns:
+    - name: timestamp
+      description: Timestamp indicating when the weather data was recorded.
+      tests:
+        - not_null
+    - name: intensidadeVento
+      description: Wind intensity measured at the recording time.
+    - name: precAcumulada
+      description: Accumulated precipitation at the recording time.
+    - name: idDireccVento
+      description: ID representing the wind direction.
+    - name: radiacao
+      description: Radiation levels recorded.
+    - name: temperatura
+      description: Temperature recorded at the location.
+    - name: location
+      description: Geographical location where the weather data was recorded.
+      tests:
+        - not_null
+        - accepted_values:
+            values:
+              - Lisboa
+    - name: pressao
+      description: Atmospheric pressure recorded.
+    - name: humidade
+      description: Humidity levels recorded.
+
+  - name: fact_vehicles_trip_det
+    description: "Detailed fact table for vehicle trips, including stop status, distance traveled, and related data for vehicle, line, and route."
+    columns:
+      - name: pk_trip_stop_id
+        description: primary key, uniquely identifying the combination of stop, trip, and status."
+        tests:
+          - unique
+          - not_null
+      - name: sk_stop
+        description: Unique ID for the stop.
+        tests:
+          - not_null
+      - name: sk_trip
+        description: Unique ID for the trip.
+        tests:
+          - not_null
+      - name: sk_vehicle
+        description: Unique ID for the vehicle.
+        tests:
+          - not_null
+      - name: sk_line
+        description: Unique ID for the transport line.
+        tests:
+          - not_null
+      - name: sk_route
+        description: Unique ID for the transport route.
+        tests:
+          - not_null
+      - name: sk_date
+        description: Date of the trip.
+        tests:
+          - not_null
+      - name: sk_hist_datetime
+        description: Date and time when the trip status was recorded.
+        tests:
+          - not_null
+      - name: current_status
+        description: Current status of the trip 
+        tests:
+          - not_null
+          - accepted_values:
+              values: 
+                - 'STOPPED_AT'
+                - 'INCOMING_AT'
+      - name: distance_traveled
+        description: Distance traveled by the trip up to the stop
+        tests:
+          - not_null
+      - name: is_valid
+        description: Indicates if the record is valid.
+      - name: inserted_at
+        description: Timestamp for when the record was inserted.
+      - name: inserted_by
+        description: User who inserted the record.
+      - name: updated_at
+        description: Timestamp for when the record was last updated.
+      - name: updated_by
+        description: User who last updated the record.
+      - name: uuid
+        description: Unique identifier for the record.
+        tests:
+          - unique
+            
