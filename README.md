@@ -5,9 +5,8 @@ This repository contains all the components required for the final project of th
 ---
 
 ## **Overview**
-![image](https://github.com/user-attachments/assets/889b0fb6-0e4d-4a2a-8b3a-17de9fff9204)
+![Untitled-2023-10-06-1235](https://github.com/user-attachments/assets/d988b1a7-a199-47e9-b564-9bec8f7f2056)
 
----
 
 ### **Key Components**
 - **Real-Time Streaming Pipeline**: Processes live bus position data using Spark Structured Streaming.
