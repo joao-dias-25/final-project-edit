@@ -61,11 +61,11 @@ with DAG('cloud_run_job_dag', default_args=default_args, schedule_interval=None)
         overrides={
             "container_overrides": [
                 {
-                    "args": ["run","--target","staging"]
+                    "args": ["run","--target","prd"]
                 }
             ]
         }
     )
 
 
-    [dbt_run, dbt_run_specific_model] >> dbt_test
+    [dbt_run_target, dbt_run_specific_model] >> dbt_test
