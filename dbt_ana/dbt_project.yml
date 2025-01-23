@@ -10,7 +10,7 @@ analysis-paths: ["src/analyses"]
 test-paths: ["src/tests"]
 seed-paths: ["src/seeds"]
 macro-paths: ["src/macros"]
-snapshot-paths: ["src/snapshots"]
+snapshot-paths: ["snapshots"]
 
 target-path: "target"
 clean-targets:
@@ -31,9 +31,11 @@ models:
       +materialized: table
       +on_schema_change: "sync_all_columns"
     reporting:
-      +materialized: incremental
+      +schema: reporting
+      +materialized: table
       +on_schema_change: "sync_all_columns"
 
-saved-queries:
-  +cache:
-    enabled: true
+snapshots:
+  edit_de_project:
+    +target_database: "data-eng-dev-437916"  
+    +target_schema: "data_eng_project_group1_snapshots" 

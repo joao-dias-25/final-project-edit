@@ -36,15 +36,4 @@ models:
         description: Average speed of the trip, calculated as distance divided by time in hours.
       - name: is_valid
         description: Indicates if the record is valid.
-      - name: inserted_at
-        description: Timestamp for when the record was inserted.
-      - name: inserted_by
-        description: User who inserted the record.
-      - name: updated_at
-        description: Timestamp for when the record was last updated.
-      - name: updated_by
-        description: User who last updated the record.
-      - name: uuid
-        description: Unique identifier for the record.
-        tests:
-          - unique
+      

@@ -1,8 +1,12 @@
-{{
-    config(
-        materialized = "table"
-    )
-}}
+{% snapshot DIM_Lines_snapshot %}
+    {{
+        config(
+            target_schema='data_eng_project_group1_snapshots',
+            unique_key='pk_line',
+            strategy='check',
+            check_cols = ["pk_line", "line_code", "long_name", "short_name", "color_line", "locality", "line_type"]
+        )
+    }}
 
 WITH expanded_lines AS (
     SELECT
@@ -37,3 +41,5 @@ joined_data AS (
 
 SELECT *
 FROM joined_data
+
+{% endsnapshot %}
