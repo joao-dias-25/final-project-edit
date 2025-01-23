@@ -10,7 +10,7 @@ WITH lines AS (
         l.long_name,
         l.short_name,
         l.color AS color_line,
-        lc -- localidade expandida
+        lc, -- localidade expandida
     FROM {{ source('raw_data', 'staging_carris_lines_data') }} l,
     UNNEST(l.localities) AS lc -- Expande a coluna localities em várias linhas
 )
