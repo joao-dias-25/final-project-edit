@@ -1,8 +1,12 @@
-{{
-    config(
-        materialized = "table"
-    )
-}}
+{% snapshot DIM_Routes_snapshot %}
+    {{
+        config(
+            target_schema='data_eng_project_group1_snapshots',
+            unique_key='pk_route',
+            strategy='check',
+            check_cols = ["pk_route", "circular", "line_id", "line_long_name", "line_short_name", "line_type", "path_type", "route_color", "route_code", "route_long_name", "route_short_name", "route_text_color", "route_type", "school"]
+        )
+    }}
 
 WITH base_routes AS (
     SELECT 
@@ -49,7 +53,6 @@ teste AS (
     FROM base_routes
 )
 
--- Listando explicitamente as colunas para evitar ambiguidade
 SELECT 
     pk_route,
     circular, 
@@ -74,4 +77,4 @@ SELECT
     uuid
 FROM teste
     
-  
+{% endsnapshot %}

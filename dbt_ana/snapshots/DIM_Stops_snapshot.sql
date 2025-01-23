@@ -1,8 +1,12 @@
-{{
-    config(
-        materialized = "table"
-    )
-}}
+{% snapshot DIM_Stops_snapshot %}
+    {{
+        config(
+            target_schema='data_eng_project_group1_snapshots',
+            unique_key='pk_stop',
+            strategy='check',
+            check_cols = ["stop_id", "stop_name", "stop_short_name", "stop_latitude", "stop_longitude", "region_id", "region_name", "district_id", "district_name", "municipality_id", "municipality_name", "locality", "operational_status", "near_school", "near_airport", "near_subway", "near_train"]
+        )
+    }}
 
 WITH stops AS (
     SELECT 
@@ -59,3 +63,5 @@ surrogate_keys AS (
 
 SELECT *
 FROM surrogate_keys
+
+{% endsnapshot %}

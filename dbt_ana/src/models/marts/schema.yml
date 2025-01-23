@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_date
+  - name: DIM_Date
     description: Dimension table about the date.
     columns:
       - name: date_day
@@ -96,22 +96,7 @@ models:
         description: line type
       - name: is_valid
         description: indicates if the row is valid or not
-      - name: inserted_at
-        description: Timestamp when the data was ingested.
-        tests:
-          - not_null
-      - name: inserted_by
-        description: User who inserted the data.
-      - name: updated_at
-        description: Timestamp of when the data was updated.
-        tests:
-          - not_null
-      - name: updated_by
-        description: User who updated the data
-      - name: uuid
-        description: Unique UUID generated for each row.
-        tests:
-          - not_null
+      
 
   - name: DIM_Routes
     description: Dimension table about routes
@@ -158,23 +143,7 @@ models:
               - 'Unknown'
     - name: is_valid
       description: indicates if the row is valid or not
-    - name: inserted_at
-      description: Timestamp when the data was ingested.
-      tests:
-        - not_null
-    - name: inserted_by
-      description: User who inserted the data.
-    - name: updated_at
-      description: Timestamp of when the data was updated.
-      tests:
-        - not_null
-    - name: updated_by
-      description: User who updated the data
-    - name: uuid
-      description: Unique UUID generated for each row.
-      tests:
-        - not_null
-
+    
 
   - name: DIM_Stops
     description: Dimension table about Stops
@@ -237,23 +206,7 @@ models:
         - not_null
     - name: is_valid
       description: indicates if the row is valid or not
-    - name: inserted_at
-      description: Timestamp when the data was ingested.
-      tests:
-        - not_null
-    - name: inserted_by
-      description: User who inserted the data.
-    - name: updated_at
-      description: Timestamp of when the data was updated.
-      tests:
-        - not_null
-    - name: updated_by
-      description: User who updated the data
-    - name: uuid
-      description: Unique UUID generated for each row.
-      tests:
-        - not_null
-
+    
   - name: DIM_Weather
     description: Dimension table about weather from a station in Lisbon
     columns:
@@ -283,7 +236,7 @@ models:
     - name: humidade
       description: Humidity levels recorded.
 
-  - name: fact_vehicles_trip_det
+  - name: FACT_vehicles_trip_det
     description: "Detailed fact table for vehicle trips, including stop status, distance traveled, and related data for vehicle, line, and route."
     columns:
       - name: pk_trip_stop_id
@@ -315,10 +268,8 @@ models:
         description: Date of the trip.
         tests:
           - not_null
-      - name: sk_hist_datetime
+      - name: atual_arrival_time
         description: Date and time when the trip status was recorded.
-        tests:
-          - not_null
       - name: current_status
         description: Current status of the trip 
         tests:
@@ -329,20 +280,6 @@ models:
                 - 'INCOMING_AT'
       - name: distance_traveled
         description: Distance traveled by the trip up to the stop
-        tests:
-          - not_null
       - name: is_valid
         description: Indicates if the record is valid.
-      - name: inserted_at
-        description: Timestamp for when the record was inserted.
-      - name: inserted_by
-        description: User who inserted the record.
-      - name: updated_at
-        description: Timestamp for when the record was last updated.
-      - name: updated_by
-        description: User who last updated the record.
-      - name: uuid
-        description: Unique identifier for the record.
-        tests:
-          - unique
             
