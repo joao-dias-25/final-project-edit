@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: FACT_trip_agg
+    description: >
+      Fact table summarizing trip-level data, including the first and last stops, 
+      travel duration, average speed, and related metrics.
+    columns:
+      - name: sk_trip
+        description: Surrogate key for the trip.
+        tests:
+          - not_null
+      - name: sk_vehicle
+        description: Surrogate key for the vehicle.
+        tests:
+          - not_null
+      - name: sk_date
+        description: Surrogate key for the date of the trip.
+        tests:
+          - not_null
+      - name: sk_line
+        description: Surrogate key for the transportation line.
+      - name: sk_route
+        description: Surrogate key for the route.
+      - name: distance_traveled
+        description: Distance traveled by the vehicle during the trip.
+      - name: departure_datetime
+        description: Timestamp for the departure from the first stop.
+      - name: arrival_datetime
+        description: Timestamp for the arrival at the last stop.
+      - name: duration_trip
+        description: Duration of the trip, calculated as the difference between arrival and departure times.
+      - name: hour
+        description: Duration of the trip in hours, derived from the timestamp difference.
+      - name: avg_speed
+        description: Average speed of the trip, calculated as distance divided by time in hours.
+      - name: is_valid
+        description: Indicates if the record is valid.
+      

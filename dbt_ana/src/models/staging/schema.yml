@@ -1,0 +1,268 @@
+version: 2
+
+models:
+  - name: stg_Lines
+    description: staging table for transportation lines
+    columns:
+      - name: line_code
+        description: Corresponds to line id
+        tests:
+          - not_null
+      - name: long_name
+        description: Full name of the line.
+      - name: short_name
+        description: Abbreviated name of the line.
+      - name: color_line
+        description: Color associated with the line for visual representation.
+      - name: lc
+        description: Expanded locality information for the line.
+
+  - name: stg_Routes
+    description: staging table for transportation routes
+    columns:
+    - name: circular
+      description: Indicates whether the route is circular or non-circular.
+      tests:
+        - not_null
+        - accepted_values:
+            values: [CIRCULAR, NON CIRCULAR]
+    - name: line_id
+      description: Unique identifier for the transportation line.
+      tests:
+        - not_null
+    - name: line_long_name
+      description: Full name of the line associated with the route.
+    - name: line_short_name
+      description: Short name of the line associated with the route.
+    - name: line_type
+      description: Type of transportation line.
+    - name: path_type
+      description: Type of path for the route.
+    - name: route_color
+      description: Color associated with the route for visualization.
+    - name: route_code
+      description: Corresponds to route id
+      tests:
+        - not_null
+        - unique
+    - name: route_long_name
+      description: Full name of the route.
+    - name: route_short_name
+      description: Short name of the route.
+    - name: route_text_color
+      description: Color of the text associated with the route for visualization.
+    - name: route_type
+      description: Type of the route
+      tests:
+        - not_null
+        - accepted_values:
+            values:
+              - Bus
+    - name: school
+      description: Indicates whether the route serves schools
+
+  - name: stg_Stops
+    description: staging table for transport stops
+    columns:
+      - name: stop_id
+        description: Unique identifier for the transport stop.
+        tests:
+          - not_null
+          - unique
+      - name: stop_name
+        description: Full name of the stop.
+        tests:
+          - not_null
+      - name: stop_short_name
+        description: Short name of the stop.
+      - name: stop_latitude
+        description: Latitude of the stop location.
+        tests:
+          - not_null
+      - name: stop_longitude
+        description: Longitude of the stop location.
+        tests:
+          - not_null
+      - name: region_id
+        description: Unique identifier for the region where the stop is located.
+      - name: region_name
+        description: Name of the region.
+      - name: district_id
+        description: Unique identifier for the district where the stop is located.
+      - name: district_name
+        description: Name of the district.
+      - name: municipality_id
+        description: Unique identifier for the municipality where the stop is located.
+      - name: municipality_name
+        description: Name of the municipality.
+      - name: locality
+        description: Locality of the stop.
+      - name: operational_status
+        description: Current operational status of the stop 
+        tests:
+          - not_null
+          - accepted_values: 
+              values:
+                - ACTIVE
+                - VOIDED
+                - INACTIVE
+                - PROVISIONAL
+                - SEASONAL
+      - name: near_school
+        description: Indicates if the stop is near a school.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Yes', 'No']
+      - name: near_airport
+        description: Indicates if the stop is near an airport.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Yes', 'No']
+      - name: near_subway
+        description: Indicates if the stop is near a subway station.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Yes', 'No']
+      - name: near_train
+        description: Indicates if the stop is near a train station.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Yes', 'No']
+      - name: current_time
+        description: Timestamp for when the data was ingested.
+        tests:
+          - not_null
+
+  - name: stg_IPMA_weather
+    description: staing table about weather from a station in Lisbon
+    columns:
+    - name: timestamp
+      description: Timestamp indicating when the weather data was recorded.
+      tests:
+        - not_null
+    - name: intensidadeVento
+      description: Wind intensity measured at the recording time.
+    - name: precAcumulada
+      description: Accumulated precipitation at the recording time.
+    - name: idDireccVento
+      description: ID representing the wind direction.
+    - name: radiacao
+      description: Radiation levels recorded.
+    - name: temperatura
+      description: Temperature recorded at the location.
+    - name: location
+      description: Geographical location where the weather data was recorded.
+      tests:
+        - not_null
+        - accepted_values:
+            values:
+            - Lisboa
+    - name: pressao
+      description: Atmospheric pressure recorded.
+    - name: humidade
+      description: Humidity levels recorded.
+
+  - name: stg_historical_stop_times
+    description: staging table about historical stop times 
+    columns:
+      - name: sk_vehicle
+        description: Unique identifier for the vehicle.
+        tests:
+          - not_null
+      - name: sk_trip
+        description: Unique identifier for the trip.
+        tests:
+          - not_null
+      - name: sk_stop
+        description: Unique identifier for the stop.
+        tests:
+          - not_null
+      - name: sk_line
+        description: Unique identifier for the transportation line.
+        tests:
+          - not_null
+      - name: sk_route
+        description: Unique identifier for the route.
+        tests:
+          - not_null
+      - name: current_status
+        description: Current status of the vehicle, trip, or stop.
+        tests:
+          - not_null
+      - name: sk_date
+        description: Date of the stop, derived from the timestamp.
+        tests:
+          - not_null
+      - name: sk_hist_datetime
+        description: Timestamp of the historical stop time event.
+        tests:
+          - not_null
+  
+  - name: stg_stop_times
+    description: staging model for stop times with expected arrival and departure times, drop-off and pickup types, and other relevant stop details.
+    columns:
+      - name: expected_arrival_time
+        description: Expected arrival time at the stop.
+        tests:
+          - not_null
+      - name: expected_departure_time
+        description: Expected departure time from the stop.
+        tests:
+          - not_null
+      - name: stop_drop_off_type
+        description: Indicates drop off method. 
+      - name: stop_pickup_type
+        description: Type of pickup at the stop 
+      - name: distance_traveled
+        description: Distance traveled by the vehicle to the stop.
+      - name: stop_id
+        description: Unique identifier for the stop.
+        tests:
+          - not_null
+      - name: stop_sequence
+        description: The sequence of the stop in the trip.
+        tests:
+          - not_null
+      - name: timepoint
+        description: Indicates whether the stop is a timepoint (a scheduled stop).
+      - name: trip_id
+        description: Unique identifier for the trip.
+        tests:
+          - not_null
+
+  - name: stg_trips
+    description: Staging table for trips, providing detailed information about trips including direction, patterns, and routes.
+    columns:
+      - name: calendar_desc
+        description: Description of the calendar associated with the trip.
+      - name: direction_id
+        description: Indicates the direction of travel for a trip.
+        tests:
+          - not_null
+          - accepted_values:
+              values: 
+                - outbound travel
+                - inbound travel
+      - name: pattern_id
+        description: Unique identifier for the trip's pattern.
+      - name: sk_route
+        description: Surrogate key for the route associated with the trip.
+        tests:
+          - not_null
+      - name: service_id
+        description: Identifies a set of dates when service is available for one or more routes.
+        tests:
+          - not_null
+      - name: shape_id
+        description: Identifies a geospatial shape describing the vehicle travel path for a trip.
+      - name: trip_headsign
+        description: Text that appears on signage identifying the trip's destination to riders. 
+      - name: trip_id
+        description: Unique identifier for each trip.
+        tests:
+          - not_null
+          - unique
