@@ -1,0 +1,99 @@
+version: 2
+
+snapshots:
+  - name: snap_dim_lines
+    strategy: timestamp
+    target_schema: snapshots
+    unique_key: pk_line
+    updated_at: updated_at
+    config:
+      invalidate_hard_deletes: true
+    columns:
+      - name: pk_line
+      - name: line_code
+      - name: long_name
+      - name: short_name
+      - name: color_line
+      - name: locality
+      - name: line_type
+      - name: is_valid
+      - name: inserted_at
+      - name: inserted_by
+      - name: updated_at
+      - name: updated_by
+      - name: uuid
+
+  - name: snap_dim_routes
+    strategy: timestamp
+    target_schema: snapshots
+    unique_key: pk_route_id
+    updated_at: updated_at
+    config:
+      invalidate_hard_deletes: true
+    columns:
+      - name: pk_route_id
+      - name: route_code
+      - name: route_long_name
+      - name: route_short_name
+      - name: route_color
+      - name: route_text_color
+      - name: circular
+      - name: route_type
+      - name: school
+      - name: is_valid
+      - name: inserted_at
+      - name: inserted_by
+      - name: updated_at
+      - name: updated_by
+      - name: uuid
+
+  - name: snap_dim_stops
+    strategy: timestamp
+    target_schema: snapshots
+    unique_key: stop_id
+    updated_at: updated_at
+    config:
+      invalidate_hard_deletes: true
+    columns:
+      - name: stop_id
+      - name: stop_name
+      - name: stop_short_name
+      - name: stop_latitude
+      - name: stop_longitude
+      - name: region_id
+      - name: region_name
+      - name: district_id
+      - name: district_name
+      - name: municipality_id
+      - name: municipality_name
+      - name: locality
+      - name: operational_status
+      - name: near_school
+      - name: near_airport
+      - name: near_subway
+      - name: near_train
+      - name: current_time
+      - name: is_valid
+      - name: inserted_at
+      - name: inserted_by
+      - name: updated_at
+      - name: updated_by
+      - name: uuid
+
+  - name: snap_dim_weathers
+    strategy: timestamp
+    target_schema: snapshots
+    unique_key: timestamp
+    updated_at: timestamp
+    config:
+      invalidate_hard_deletes: true
+    columns:
+      - name: timestamp
+      - name: intensidadeVento
+      - name: precAcumulada
+      - name: idDireccVento
+      - name: radiacao
+      - name: temperatura
+      - name: location
+      - name: pressao
+      - name: humidade
