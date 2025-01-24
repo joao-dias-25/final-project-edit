@@ -80,6 +80,10 @@ models:
   - name: DIM_Lines
     description: Dimension table about lines    
     columns:
+      - name: pk_line
+        tests:
+          - unique
+          - not_null
       - name: line_code
         description: correponds to line id
         tests:
@@ -101,11 +105,14 @@ models:
   - name: DIM_Routes
     description: Dimension table about routes
     columns:
+    - name: pk_route
+      tests:
+          - unique
+          - not_null
     - name: route_code
       description: Corresponds to route id
       tests:
         - not_null
-        - unique
     - name: route_long_name
       description: Full name of the route.
     - name: route_short_name
@@ -148,11 +155,14 @@ models:
   - name: DIM_Stops
     description: Dimension table about Stops
     columns:
+    - name: pk_stop
+      tests:
+          - unique
+          - not_null
     - name: stop_id
       description: Unique ID of the stop.
       tests:
         - not_null
-        - unique
     - name: stop_name
       description: Full name of the stop.
       tests:
