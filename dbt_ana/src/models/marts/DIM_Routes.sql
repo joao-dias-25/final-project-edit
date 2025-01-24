@@ -6,12 +6,7 @@
 
 SELECT 
     pk_route,
-    circular, 
-    line_id, 
-    line_long_name, 
-    line_short_name, 
-    line_type, 
-    path_type,
+    circular,  
     route_color,
     route_code, 
     route_long_name,
