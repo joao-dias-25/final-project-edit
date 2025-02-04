@@ -1,45 +1,33 @@
 edit_de_project:
-  target: staging #for production add argm --target prod
+  target: dev #for production add argm --target prd
   outputs:
     staging:
+      dataset: data_eng_project_group1
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      location: EU
+      method: oauth
+      priority: interactive
+      project: data-eng-dev-437916
+      threads: 4
+      type: bigquery
+    dev:
       type: bigquery
       method: oauth
       project: data-eng-dev-437916
-      dataset: data_eng_project_group1
+      dataset: data_eng_project_group1_dev
       job_execution_timeout_seconds: 300
       job_retries: 1
       location: EU
       priority: interactive
       threads: 4 # Must be a value of 1 or greater 
-    Marts:
+    prd:
       type: bigquery
       method: oauth
       project: data-eng-dev-437916
-      dataset: data_eng_project_group1
+      dataset: data_eng_project_group1_prd
       job_execution_timeout_seconds: 300
       job_retries: 1
       location: EU
       priority: interactive
       threads: 4
-    Reporting:
-      type: bigquery
-      method: oauth
-      project: data-eng-dev-437916
-      dataset: data_eng_project_group1
-      job_execution_timeout_seconds: 300
-      job_retries: 1
-      location: EU
-      priority: interactive
-      threads: 4
-    snapshots:
-      type: bigquery
-      method: oauth
-      project: data-eng-dev-437916
-      dataset: data_eng_project_group1
-      job_execution_timeout_seconds: 300
-      job_retries: 1
-      location: EU
-      priority: interactive
-      threads: 4 # Must be a value of 1 or greater 
-    
-  
