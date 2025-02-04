@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: DIM_Date
+  - name: DIM_Dates
     description: Dimension table about the date.
     columns:
       - name: date_day
@@ -217,7 +217,7 @@ models:
     - name: is_valid
       description: indicates if the row is valid or not
     
-  - name: DIM_Weather
+  - name: DIM_Weathers
     description: Dimension table about weather from a station in Lisbon
     columns:
     - name: timestamp
