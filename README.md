@@ -5,7 +5,7 @@ This repository contains all the components required for the final project of th
 ---
 
 ## **Overview**
-![Untitled-2023-10-06-1235](https://github.com/user-attachments/assets/d988b1a7-a199-47e9-b564-9bec8f7f2056)
+![Untitled-2023-10-06-1235](https://github.com/user-attachments/assets/cd2313bc-1c6b-4e8a-babe-ca7eb581a9a1)
 
 
 ### **Key Components**
